@@ -1,0 +1,133 @@
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --bg-color: #f4f6f9;
+  --text-color: #333;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.badge-connected { background-color: #27ae60; color: white; }
+.badge-disconnected { background-color: #e74c3c; color: white; }
+
+.btn-refresh {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Tarjetas */
+.cards-row {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  min-width: 200px;
+}
+
+.card h3 { margin-top: 0; font-size: 1.1rem; color: #7f8c8d; }
+.card p { font-size: 2rem; font-weight: bold; margin: 0; color: var(--primary-color); }
+
+/* Secciones */
+.chart-section, .table-section {
+  background: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.chart-header, .table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+/* Controles de vista */
+.view-toggle button {
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.view-toggle button.active {
+  background-color: var(--secondary-color);
+  color: white;
+  border-color: var(--secondary-color);
+}
+.hidden { display: none !important; }
+
+/* Carrera de Camellos */
+.camel-race-wrapper { padding: 20px 0; }
+.track-lane {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px dashed #ccc;
+  padding: 10px 0;
+  position: relative;
+}
+.track-name { width: 100px; font-weight: bold; }
+.track-progress { flex: 1; height: 30px; position: relative; background: #fdf5e6; border-radius: 15px; margin-right: 15px; }
+.camel {
+  font-size: 24px;
+  position: absolute;
+  top: -2px;
+  transition: left 1s ease-in-out;
+}
+.finish-line { border-right: 4px solid #e74c3c; height: 100%; position: absolute; right: 0; top: 0; }
+
+.commentator {
+  display: flex;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border-left: 4px solid #f1c40f;
+}
+.commentator-avatar { font-size: 30px; margin-right: 15px; }
+.commentator-name { font-weight: bold; color: #7f8c8d; font-size: 0.9rem; }
+.commentator-text { font-size: 1.1rem; margin-top: 5px; }
