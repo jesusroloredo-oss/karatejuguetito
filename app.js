@@ -1,16 +1,26 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. BASE DE DATOS AUTÓNOMA (Modifica esto para actualizar tu web)
-    const datosKarate = [
-        { tatami: "Tatami 1", categoria: "Kumite Senior Masculino", pendientes: 12, estado: "En curso" },
-        { tatami: "Tatami 2", categoria: "Kata Cadete Femenino", pendientes: 5, estado: "En curso" },
-        { tatami: "Tatami 3", categoria: "Kumite Junior Femenino", pendientes: 8, estado: "Pausado" },
-        { tatami: "Tatami 4", categoria: "Kata Senior Masculino", pendientes: 2, estado: "Casi finalizado" }
-    ];
+document.addEventListener('DOMContentLoaded', async () => {
+    
+    // Función para cargar los datos del JSON
+    async function cargarDatos() {
+        try {
+            const respuesta = await fetch('datos.json');
+            const datosKarate = await respuesta.json();
+            return datosKarate;
+        } catch (error) {
+            console.error("Error cargando los datos:", error);
+            return []; // Devuelve un array vacío si falla
+        }
+    }
+
+    const datosKarate = await cargarDatos();
 
     // Actualizar tarjetas de resumen
     const totalMatches = datosKarate.reduce((sum, item) => sum + item.pendientes, 0);
     document.getElementById('total-matches').innerText = totalMatches;
     document.getElementById('last-update').innerText = new Date().toLocaleTimeString();
+
+    // ... (El resto de la configuración de AG Grid y Chart.js se mantiene igual, 
+    // usando la variable datosKarate que acabamos de cargar) ...
 
     // 2. CONFIGURACIÓN DE AG GRID
     const gridOptions = {
