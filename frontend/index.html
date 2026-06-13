@@ -18,26 +18,40 @@
   <header class="header">
     <div class="header-left">
       <h1>🥋 Karate Scoring Dashboard</h1>
-      <span id="connection-badge" class="badge badge-connected">Datos Locales</span>
+      <span id="connection-badge" class="badge badge-disconnected">Buscando datos...</span>
     </div>
     <div class="header-right">
-      <span id="version-label" class="version-label">v1.0 (GitHub Pages)</span>
-      <span id="last-update">—</span>
-      <button id="btn-refresh-tatamis-global" class="btn-refresh" title="Recargar datos">🔄 Recargar</button>
+      <span id="version-label" class="version-label">v1.0 (GitHub)</span>
+      <span id="last-update" class="last-update">—</span>
+      <button id="btn-refresh-tatamis-global" class="btn-refresh" title="Actualizar tatamis">🔄 Actualizar datos</button>
     </div>
   </header>
 
   <section class="cards-row" id="summary-cards">
-    <div class="card"><h3>Total Tatamis</h3><p id="total-tatamis">4</p></div>
-    <div class="card"><h3>Combates Pendientes</h3><p id="total-matches">0</p></div>
-  </section>
+    </section>
 
   <section class="chart-section">
     <div class="chart-header">
       <h2>Combates pendientes por Tatami</h2>
+      <div class="chart-controls">
+        <div class="view-toggle">
+          <button id="btn-chart-view" class="active" title="Gráfica de barras">📊 Gráfico</button>
+          <button id="btn-race-view" title="Carrera de camellos">🐪 Carrera</button>
+        </div>
+      </div>
     </div>
     <div class="chart-container" id="chart-view" style="width: 80%; margin: 0 auto;">
       <canvas id="tatami-chart"></canvas>
+    </div>
+    <div class="camel-race-wrapper hidden" id="race-view">
+      <div id="camel-race-track"></div>
+      <div class="commentator" id="commentator-box">
+        <div class="commentator-avatar">🎙️</div>
+        <div class="commentator-body">
+          <div class="commentator-name">Comentarista del Tatami</div>
+          <div id="commentator-text">🎤 ¡Preparando los tatamis para la carrera de rendimiento!</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -45,9 +59,10 @@
     <div class="table-header">
       <h2>Detalle de categorías</h2>
     </div>
-    <div id="grid" class="ag-theme-alpine" style="width: 100%; height: 400px;"></div>
+    <div id="grid" class="ag-theme-alpine" style="width: 100%; height: 600px;"></div>
   </section>
 
+  <script src="camel-race.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
